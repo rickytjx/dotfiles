@@ -46,6 +46,49 @@ fi
 export VOLTA_HOME=$HOME/.volta
 export PATH=$VOLTA_HOME/bin:$PATH
 
+# === NPM BINARY CHINA ===
+# https://github.com/cnpm/binary-mirror-config/blob/master/package.json#L53
+export NODEJS_ORG_MIRROR="https://cdn.npmmirror.com/binaries/node"
+export NVM_NODEJS_ORG_MIRROR="https://cdn.npmmirror.com/binaries/node"
+export PHANTOMJS_CDNURL="https://cdn.npmmirror.com/binaries/phantomjs"
+export CHROMEDRIVER_CDNURL="https://cdn.npmmirror.com/binaries/chromedriver"
+export OPERADRIVER_CDNURL="https://cdn.npmmirror.com/binaries/operadriver"
+export ELECTRON_MIRROR="https://cdn.npmmirror.com/binaries/electron/"
+export ELECTRON_BUILDER_BINARIES_MIRROR="https://cdn.npmmirror.com/binaries/electron-builder-binaries/"
+export SASS_BINARY_SITE="https://cdn.npmmirror.com/binaries/node-sass"
+export SWC_BINARY_SITE="https://cdn.npmmirror.com/binaries/node-swc"
+export NWJS_URLBASE="https://cdn.npmmirror.com/binaries/nwjs/v"
+export PUPPETEER_DOWNLOAD_HOST="https://cdn.npmmirror.com/binaries"
+export SENTRYCLI_CDNURL="https://cdn.npmmirror.com/binaries/sentry-cli"
+export SAUCECTL_INSTALL_BINARY_MIRROR="https://cdn.npmmirror.com/binaries/saucectl"
+export npm_config_sharp_binary_host="https://cdn.npmmirror.com/binaries/sharp"
+export npm_config_sharp_libvips_binary_host="https://cdn.npmmirror.com/binaries/sharp-libvips"
+export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj"
+# For Cypress >=10.6.0, https://docs.cypress.io/guides/references/changelog#10-6-0
+export CYPRESS_DOWNLOAD_PATH_TEMPLATE='https://cdn.npmmirror.com/binaries/cypress/${version}/${platform}-${arch}/cypress.zip'
+
+# pnpm
+export PNPM_HOME=$HOME/.local/share/pnpm
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# Java
+export JAVA_HOME=$HOME/.jdks/jdk1.8.0_361
+export CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Maven
+export MAVEN_HOME=/opt/apache-maven-3.6.3
+export PATH=$PATH:$MAVEN_HOME/bin
+
+# Proxy
+export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+export https_proxy="http://${hostip}:7890"
+export http_proxy="http://${hostip}:7890"
+export ALL_PROXY="http://${hostip}:7890"
+
 ## History command configuration
 HISTSIZE=5000                 # How many lines of history to keep in memory
 HISTFILE=~/.zsh_history       # Where to save history to disk
@@ -92,46 +135,3 @@ bindkey '\e[3~'   delete-char        # Linux console, xterm, gnome-terminal
 bindkey '\e[4~'   end-of-line        # Linux console
 bindkey '\e[F'    end-of-line        # xterm
 bindkey '\eOF'    end-of-line        # gnome-terminal
-
-# === NPM BINARY CHINA ===
-# https://github.com/cnpm/binary-mirror-config/blob/master/package.json#L53
-export NODEJS_ORG_MIRROR="https://cdn.npmmirror.com/binaries/node"
-export NVM_NODEJS_ORG_MIRROR="https://cdn.npmmirror.com/binaries/node"
-export PHANTOMJS_CDNURL="https://cdn.npmmirror.com/binaries/phantomjs"
-export CHROMEDRIVER_CDNURL="https://cdn.npmmirror.com/binaries/chromedriver"
-export OPERADRIVER_CDNURL="https://cdn.npmmirror.com/binaries/operadriver"
-export ELECTRON_MIRROR="https://cdn.npmmirror.com/binaries/electron/"
-export ELECTRON_BUILDER_BINARIES_MIRROR="https://cdn.npmmirror.com/binaries/electron-builder-binaries/"
-export SASS_BINARY_SITE="https://cdn.npmmirror.com/binaries/node-sass"
-export SWC_BINARY_SITE="https://cdn.npmmirror.com/binaries/node-swc"
-export NWJS_URLBASE="https://cdn.npmmirror.com/binaries/nwjs/v"
-export PUPPETEER_DOWNLOAD_HOST="https://cdn.npmmirror.com/binaries"
-export SENTRYCLI_CDNURL="https://cdn.npmmirror.com/binaries/sentry-cli"
-export SAUCECTL_INSTALL_BINARY_MIRROR="https://cdn.npmmirror.com/binaries/saucectl"
-export npm_config_sharp_binary_host="https://cdn.npmmirror.com/binaries/sharp"
-export npm_config_sharp_libvips_binary_host="https://cdn.npmmirror.com/binaries/sharp-libvips"
-export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj"
-# For Cypress >=10.6.0, https://docs.cypress.io/guides/references/changelog#10-6-0
-export CYPRESS_DOWNLOAD_PATH_TEMPLATE='https://cdn.npmmirror.com/binaries/cypress/${version}/${platform}-${arch}/cypress.zip'
-
-# pnpm
-export PNPM_HOME="/home/ricky/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# Java
-export JAVA_HOME=/home/ricky/.jdks/jdk1.8.0_361
-export CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-export PATH=$JAVA_HOME/bin:$PATH
-
-# Maven
-export MAVEN_HOME=/opt/apache-maven-3.6.3
-export PATH=$PATH:$MAVEN_HOME/bin
-
-# Proxy
-export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
-export https_proxy="http://${hostip}:7890"
-export http_proxy="http://${hostip}:7890"
-export ALL_PROXY="http://${hostip}:7890"
