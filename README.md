@@ -325,4 +325,3 @@ sudo cp -a Documentation/html/git-filter-repo.html $(git --html-path)
 cd -
 rm -rf /tmp/git-filter-repo
 ```
->>>>>>> Stashed changes
