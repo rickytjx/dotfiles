@@ -1,4 +1,4 @@
-My Windows 11 Setup & Dotfiles
+My Dotfiles
 ==============================
 
 Goals of this setup
