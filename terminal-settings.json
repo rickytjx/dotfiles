@@ -1,0 +1,90 @@
+// Windows Terminal Settings
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+
+{
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+
+  "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+  "disabledProfileSources": [
+    "Windows.Terminal.Azure"
+  ],
+
+  "profiles":
+  [
+    {
+      "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+      "name": "WSL Ubuntu",
+      "commandline": "wsl.exe",
+      "source": "Windows.Terminal.Wsl",
+      "closeOnExit": "always",
+      "colorScheme": "Snazzy",
+      "cursorColor": "#97979b",
+      "cursorShape": "filledBox",
+      "font": 
+      {
+        "face": "FiraCode Nerd Font Mono",
+        "size": 11.0
+      },
+      "padding": "17, 17, 17, 17"
+    },
+    {
+      "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+      "name": "PowerShell Core",
+      "source": "Windows.Terminal.PowershellCore",
+      "closeOnExit": "always",
+      "font": 
+      {
+        "face": "JetBrains Mono",
+        "size": 11.0
+      },
+      "padding": "17, 17, 17, 17"
+    },
+    {
+      "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+      "name": "cmd",
+      "commandline": "cmd.exe",
+      "closeOnExit": "always",
+      "font": 
+      {
+        "face": "JetBrains Mono",
+        "size": 11.0
+      },
+      "padding": "17, 17, 17, 17"
+    },
+    {
+      /* Windows PowerShell - hidden */
+      "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+      "hidden": true
+    }
+  ],
+
+  // Add custom color schemes to this array
+  "schemes": [
+    {
+      "name": "Snazzy",
+      "foreground": "#eff0eb",
+      "background": "#0f111a",
+      "black": "#0f111a",
+      "red": "#ff5c57",
+      "green": "#5af78e",
+      "yellow": "#f3f99d",
+      "blue": "#57c7ff",
+      "purple": "#ff6ac1",
+      "cyan": "#9aedfe",
+      "white": "#f1f1f0",
+      "brightBlack": "#686868",
+      "brightRed": "#ff5c57",
+      "brightGreen": "#5af78e",
+      "brightYellow": "#f3f99d",
+      "brightBlue": "#57c7ff",
+      "brightPurple": "#ff6ac1",
+      "brightCyan": "#9aedfe",
+      "brightWhite": "#eff0eb"
+    }
+  ],
+
+  // Add any keybinding overrides to this array.
+  // To unbind a default keybinding, set the command to "unbound"
+  "keybindings": []
+}
